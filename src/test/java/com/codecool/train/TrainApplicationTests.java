@@ -1,5 +1,11 @@
 package com.codecool.train;
 
+import com.codecool.train.dto.TrainDto;
+import com.codecool.train.dto.TrainWagonDto;
+import com.codecool.train.dto.WagonDto;
+import com.codecool.train.entity.Train;
+import com.codecool.train.entity.Wagon;
+import com.codecool.train.entity.WagonType;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
