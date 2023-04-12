@@ -2,7 +2,9 @@ package com.codecool.train.entity;
 
 import lombok.*;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.util.List;
 
 @Getter
@@ -13,7 +15,6 @@ import java.util.List;
 @Entity
 public class Train {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
     private String driver;
     private String destination;

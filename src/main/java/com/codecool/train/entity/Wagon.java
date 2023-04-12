@@ -1,5 +1,6 @@
 package com.codecool.train.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -9,10 +10,10 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@ToString
 @Entity
 public class Wagon {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
     private Integer weight;
     @Enumerated(EnumType.STRING)
@@ -20,5 +21,6 @@ public class Wagon {
 
     @ManyToOne
     @JoinColumn(name = "train_id")
+    @JsonIgnore
     private Train train;
 }
