@@ -15,6 +15,7 @@ public class Wagon {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
     private Integer weight;
+    @Enumerated(EnumType.STRING)
     private WagonType wagonType;
 
     @ManyToOne
