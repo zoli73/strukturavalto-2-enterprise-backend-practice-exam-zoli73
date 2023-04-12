@@ -13,12 +13,12 @@ import java.util.List;
 public class WagonController {
     private WagonService wagonService;
 
-    public WagonController(WagonService wagonService) {
+    public WagonController(@RequestBody WagonService wagonService) {
         this.wagonService = wagonService;
     }
 
     @PostMapping
-    public void saveWagon(WagonDto wagonDto) {
+    public void saveWagon(@RequestBody WagonDto wagonDto) {
         wagonService.saveWagon(wagonDto);
     }
 

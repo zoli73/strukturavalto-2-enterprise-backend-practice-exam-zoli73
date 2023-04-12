@@ -22,6 +22,10 @@ public class WagonService {
         wagonDAO.save(WagonMapper.dtoToWagon(wagonDto));
     }
 
+    public void saveWagon(Wagon wagon) {
+        wagonDAO.save(wagon);
+    }
+
     public List<Wagon> listAllWagon() {
         return wagonDAO.findAll();
     }

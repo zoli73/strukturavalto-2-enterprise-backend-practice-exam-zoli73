@@ -6,6 +6,8 @@ import com.codecool.train.entity.Train;
 import com.codecool.train.service.TrainService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/train")
 public class TrainController {
@@ -20,7 +22,7 @@ public class TrainController {
         trainService.saveTrain(trainDto);
     }
 
-    @PostMapping
+    @PostMapping("/addWagon")
     public void addWagonToTrain(@RequestBody TrainWagonDto trainWagonDto) {
         trainService.addWagonToTrain(trainWagonDto);
     }
@@ -38,5 +40,10 @@ public class TrainController {
     @DeleteMapping("/{id}")
     public void deleteTrain(@PathVariable("id") String id) {
         trainService.deleteTrain(id);
+    }
+
+    @GetMapping("/heavy")
+    public List<Train> listHeavyWagons() {
+        return trainService.listHeavyWagons();
     }
 }

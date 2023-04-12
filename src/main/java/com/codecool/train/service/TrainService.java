@@ -6,9 +6,12 @@ import com.codecool.train.dto.TrainWagonDto;
 import com.codecool.train.entity.Train;
 import com.codecool.train.entity.Wagon;
 import com.codecool.train.repository.TrainDAO;
+import com.codecool.train.repository.WagonDAO;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
+
+import java.util.List;
 
 @Service
 public class TrainService {
@@ -27,7 +30,8 @@ public class TrainService {
     public void addWagonToTrain(TrainWagonDto trainWagonDto) {
         Train train = getTrainById(trainWagonDto.getTrainId());
         Wagon wagon = wagonService.getWagonById(trainWagonDto.getWagonId());
-        train.getWagons().add(wagon);
+        wagon.setTrain(train);
+        wagonService.saveWagon(wagon);
     }
 
     public Train getTrainById(String id) {
@@ -48,5 +52,14 @@ public class TrainService {
     public void deleteTrain(String id) {
         Train train = getTrainById(id);
         trainDAO.delete(train);
+    }
+
+    public List<Train> listHeavyWagons() {
+        List<Train> trains = trainDAO.findAll();
+        return trains.stream()
+                .filter(train -> (
+                        train.getWagons()
+                                .stream().mapToInt(Wagon::getWeight)
+                                .reduce((weight, sum) -> sum += weight)).orElse(0) > 25).toList();
     }
 }
