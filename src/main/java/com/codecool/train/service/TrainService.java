@@ -1,12 +1,11 @@
 package com.codecool.train.service;
 
 import com.codecool.train.dto.TrainDto;
-import com.codecool.train.dto.mapper.TrainMapper;
 import com.codecool.train.dto.TrainWagonDto;
+import com.codecool.train.dto.mapper.TrainMapper;
 import com.codecool.train.entity.Train;
 import com.codecool.train.entity.Wagon;
 import com.codecool.train.repository.TrainDAO;
-import com.codecool.train.repository.WagonDAO;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
