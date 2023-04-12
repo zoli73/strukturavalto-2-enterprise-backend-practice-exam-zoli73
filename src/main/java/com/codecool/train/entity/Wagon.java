@@ -4,14 +4,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.Objects;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@ToString
 @Entity
 public class Wagon {
     @Id
@@ -24,17 +21,4 @@ public class Wagon {
     @JoinColumn(name = "train_id")
     @JsonIgnore
     private Train train;
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Wagon wagon = (Wagon) o;
-        return Objects.equals(id, wagon.id) && Objects.equals(weight, wagon.weight) && wagonType == wagon.wagonType;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, weight, wagonType);
-    }
 }
