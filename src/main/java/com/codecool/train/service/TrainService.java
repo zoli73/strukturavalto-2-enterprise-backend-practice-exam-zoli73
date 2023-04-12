@@ -1,7 +1,7 @@
 package com.codecool.train.service;
 
 import com.codecool.train.dto.TrainDto;
-import com.codecool.train.dto.TrainMapper;
+import com.codecool.train.dto.mapper.TrainMapper;
 import com.codecool.train.dto.TrainWagonDto;
 import com.codecool.train.entity.Train;
 import com.codecool.train.entity.Wagon;

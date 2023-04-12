@@ -1,5 +1,6 @@
-package com.codecool.train.dto;
+package com.codecool.train.dto.mapper;
 
+import com.codecool.train.dto.TrainDto;
 import com.codecool.train.entity.Train;
 
 public class TrainMapper {
