@@ -60,7 +60,7 @@ public class TrainService {
                         train.getWagons()
                                 .stream()
                                 .mapToInt(Wagon::getWeight)
-                                .reduce((weight, sum) -> sum += weight))
+                                .reduce(Integer::sum))
                         .orElse(0) > 25)
                 .toList();
     }
