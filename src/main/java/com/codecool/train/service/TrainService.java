@@ -58,7 +58,10 @@ public class TrainService {
         return trains.stream()
                 .filter(train -> (
                         train.getWagons()
-                                .stream().mapToInt(Wagon::getWeight)
-                                .reduce((weight, sum) -> sum += weight)).orElse(0) > 25).toList();
+                                .stream()
+                                .mapToInt(Wagon::getWeight)
+                                .reduce((weight, sum) -> sum += weight))
+                        .orElse(0) > 25)
+                .toList();
     }
 }
