@@ -3,7 +3,6 @@ package com.codecool.train.controller;
 import com.codecool.train.dto.WagonDto;
 import com.codecool.train.entity.Wagon;
 import com.codecool.train.service.WagonService;
-import lombok.Getter;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

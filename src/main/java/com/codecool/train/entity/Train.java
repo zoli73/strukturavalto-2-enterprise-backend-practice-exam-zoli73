@@ -6,8 +6,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import java.util.List;
+import java.util.Objects;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -21,4 +23,17 @@ public class Train {
 
     @OneToMany(mappedBy = "train")
     private List<Wagon> wagons;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Train train = (Train) o;
+        return Objects.equals(id, train.id) && Objects.equals(driver, train.driver) && Objects.equals(destination, train.destination) && Objects.equals(isLate, train.isLate);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, driver, destination, isLate);
+    }
 }
